@@ -32,6 +32,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
+	function sendSMS() {
+    $.ajax({
+      type: 'POST',
+      url: 'https://api.twilio.com/2010-04-01/Accounts/AC09da9990139d57229226e8bf020ab7e0/Messages',
+      headers: { "Authorization": "Basic QUMwOWRhOTk5MDEzOWQ1NzIyOTIyNmU4YmYwMjBhYjdlMDo2NmU3OTc0NTBlNGQ3NTlhOThlMzNhYmFlYzQ4ODdiYw=="},
+      data: { To: "+48692956865", Body: "You have one event coming!", From: "+48732483653"}
+    });
+  }
   $(document).ready(function(){
     var divClone = $("#listOf").clone();
     $("#input").hide();
@@ -41,7 +49,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           $("#listOf").replaceWith(divClone.clone());
           var result = "";
           $.each( data, function(i, el){
-             result += el + " <img src='images/sms.svg' style='height:5%; width:5%;'><br>";
+             result += el + " <img src='images/sms.svg' style='height:3%; width:3%;' onclick=sendSMS()><br>";
           });
           $("#listOf").append(result);
       });
@@ -79,12 +87,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div class="clearfix"> </div>
     </div>
   </div>
+  <a href="http://localhost:5000/assets/menu.html" class="btn btn-info" role="button" style="float: right;">Return to main panel</a>
   <div class="banner-info">
     <!-- container -->
-    <div class="btn-group">
-      <button id="list" type="button" class="btn btn-default">List of participants</button>
-      <button id="add" type="button"class="btn btn-default">Add participant</button>
-    </div>
+
+      <div class="btn-group" >
+        <button id="list" type="button" class="btn btn-default">List of participants</button>
+        <button id="add" type="button"class="btn btn-default">Add participant</button>
+      </div>
+    <br>
     <div id="listOf" ></div>
     <form id= "input" class="form-inline">
       <div class="form-group">
@@ -92,6 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <input type="text" class="form-control" id="name">
       </div>
       <button id="submit" type="submit" class="btn btn-default">Submit</button>
+      <br>
     </form>
     <!-- //container -->
   </div>

@@ -71,7 +71,6 @@ public class PostgreSQLClient {
             resultSet = this.postgreSQLQueries.getParticipantsQuery(statement);
             while(resultSet.next()) {
                 final String name = resultSet.getString("name");
-                System.out.println(name);
                 result.add(name);
             }
         }
