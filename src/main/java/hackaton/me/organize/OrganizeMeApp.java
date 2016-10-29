@@ -11,7 +11,7 @@ public class OrganizeMeApp extends Application<OrganizeMeConfig> {
     }
 
     @Override
-    public void run(final OrganizeMeConfig organizeMeConfig, final Environment environment) throws Exception {
-
+    public void run(final OrganizeMeConfig config, final Environment environment) throws Exception {
+        config.addResources(environment);
     }
 }
