@@ -34,7 +34,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	});
   $(document).ready(function(){
     var divClone = $("#listOf").clone();
+    $("#input").hide();
     $("#list").click(function(){
+      $('#listOf').show();
       $.get("http://localhost:5000/organize-me/participants", function(data){
           $("#listOf").replaceWith(divClone.clone());
           var result = "";
@@ -45,8 +47,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       });
     });
     $("#add").click(function(){
-      var query = "http://localhost:5000/organize-me/add-participant";
-      console.log("jaj");
+        $('#listOf').hide();
+        $('#input').show();
+        var query = "http://localhost:5000/organize-me/add-participant";
+    });
+    $("#submit").click(function(){
+        $('#listOf').hide();
+        $('#input').show();
+        var query = "http://localhost:5000/organize-me/add-participant";
     });
   });
 
@@ -58,9 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="header-bg">
   <section class="navigation">
     <div class="container-fluid">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-
-      </div>
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2"></div>
     </div>
   </section>
   <div class="header-top">
@@ -74,10 +80,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <div class="banner-info">
     <!-- container -->
     <div class="btn-group">
-      <button id="add" class="btn btn-default">Add participant</button>
       <button id="list" type="button" class="btn btn-default">List of participants</button>
+      <button id="add" type="button"class="btn btn-default">Add participant</button>
     </div>
-    <div id="listOf"></div>
+    <div id="listOf" ></div>
+    <form id= "input" class="form-inline">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+      <button id="submit" type="submit" class="btn btn-default">Submit</button>
+    </form>
     <!-- //container -->
   </div>
 </div>
