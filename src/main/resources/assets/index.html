@@ -7,116 +7,289 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OrganizeMe.pl - Zorganizuj event!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="OrganizeMe.pl - Zorganizuj event!" />
-    <meta name="keywords" content="organizeme, organize, events, plan" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/styles.css?v=1.6" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
-    <!-- js -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/scripts.js?v=1.7"></script>
-    <!-- //js -->
-    <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
+<title>OrganizeMe.pl - Zorganizuj event!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="OrganizeMe.pl - Zorganizuj event!" />
+<meta name="keywords" content="organizeme, organize, events, plan" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/styles.css?v=1.6" rel="stylesheet">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
+<!-- js -->
+<script src="js/jquery.min.js"></script>
+<script src="js/scripts.js?v=1.7"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){
+		$(".scroll").click(function(event){		
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
 </script>
-    <!-- start-smoth-scrolling -->
+<!-- start-smoth-scrolling -->
 </head>
-<body class="cbp-spmenu-push">
-<!-- header -->
-<div class="header-bg">
-    <section class="navigation">
-        <div class="container-fluid">
-            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+	<body class="cbp-spmenu-push">
+		<!-- header -->
+		<div class="header-bg">
+					<section class="navigation">
+							<div class="container-fluid">
+								<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+								  <nav class="pull">
+									<ul class="nav">
+									  <li><a href="#home" class="scroll">Home</a></li>
+									  <li><a href="#people" class="scroll">Who are we?</a></li>
+									  <li><a href="#features" class="scroll">Features</a></li>
+									  <li><a href="#contact" class="scroll">Contact</a></li>
+									</ul>
+								  </nav>
+								</div>
+							</div>
+						</section>
+						<div class="header-top">
+							<div class="container">
+								<div class="head-logo">
+									<a href="index.html"><img src="images/logo.png"></a>
+								</div>
+								<div class="top-nav">
+									<section class="hero nav_slide_button" id="hero">
+										<a href="http://localhost:5000/assets/menu.html" class="btn btn-info" role="button">Link Button</a>
+										<a href="#"><img src="images/menu-icon.png" alt=""></a>
+									</section>
 
+								</div>	
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+			<div class="banner-info">
+				<!-- container -->
+				<div class="container">
+					<div class="col-md-5 slid">
+						<!--- banner Slider starts Here --->
+							<script src="js/responsiveslides.min.js"></script>
+						 <script>
+							// You can also use "$(window).load(function() {"
+							$(function () {
+							  // Slideshow 4
+							  $("#slider4").responsiveSlides({
+								auto: true,
+								pager: true,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+								  $('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+								  $('.events').append("<li>after event fired.</li>");
+								}
+							  });
+						
+							});
+						  </script>
+						<!----//End-slider-script---->
+						<div  id="top" class="callbacks_container">
+							<ul class="rslides" id="slider4">
+								<li>
+									<div class="mobile-device">
+										<img src="images/events1.jpg" alt="" />
+									</div>
+								</li>
+								<li>
+									<div class="mobile-device">
+										<img src="images/events2.jpg" alt="" />
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-7 banner-info-left">
+						<h2>OrganizeMe is <span>the easiest</span> way to organize your event!</h2>
+						<p>It generates schedules and provides you with the full platform you need.</p>
+						<!--<div class="banner-buttons">
+							<div class="banner-button">
+								<a href="#"><img src="images/1.png" alt="" /></a>
+							</div>
+							<div class="banner-button green-button">
+								<a href="#"><img src="images/2.png" alt="" /></a>
+							</div>
+							<div class="clearfix"> </div>
+						</div>-->
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<!-- //container -->
+			</div>
+		</div>
+		<!-- //header -->
+		<!-- kim jestesmy -->
+		   <section id="people" style="float: none; background-color: #E84D0C">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Who are we?</h2>
+                </div>
+            </div>
+            <div class="row container5">
+				<div class="center-block col-md-4 text-center">
+					<img src="images/kasia.jpg" class="img-responsive img-circle" alt="">
+					<h3 class="my-text">Kasia Głąb</h3>
+					<h4 style="color: lightgray">Back-end Pirat</h4>
+				</div>
+
+				<div class="center-block col-md-4 text-center">
+					<img src="images/michal.jpg"  class="img-responsive img-circle" alt="" >
+					<h3 class="my-text">Michał Kiełtyka</h3>
+					<h4 style="color: lightgray">Front-end Master</h4>
+				</div>
+				<div class="center-block col-md-4 text-center">
+					<img src="images/karolina.jpg"  class="img-responsive img-circle" alt="" >
+					<h3 class="my-text">Karolina Wojtas</h3>
+					<h4 style="color: lightgray">Marketing & Business Development Princess</h4>
+				</div>
             </div>
         </div>
     </section>
-    <div class="header-top">
-        <div class="container">
-            <div class="head-logo">
-                <a href="index.html"><img src="images/logo.png"></a>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-    <div class="banner-info">
-        <!-- container -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <a href="#" class="thumbnail conference-tile">
-                        <img src="images/location.svg"  alt="..." class="conference-icon">
-                        <div class="caption">
-                            <h1>Place</h1>
-                            <p>Choose the right place for your event.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#" class="thumbnail conference-tile">
-                        <img src="images/speakers.svg"  alt="..." class="conference-icon">
-                        <div class="caption">
-                            <h1>Speakers</h1>
-                            <p>Manage speakers at your conference.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#" class="thumbnail conference-tile">
-                        <img src="images/partners.svg"  alt="..." class="conference-icon">
-                        <div class="caption">
-                            <h1>Partners</h1>
-                            <p>Manage partners at your conference.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#" class="thumbnail conference-tile">
-                        <img src="images/promotion.svg"  alt="..." class="conference-icon">
-                        <div class="caption">
-                            <h1>Promotion</h1>
-                            <p>Promote your conference.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="http://localhost:5000/assets/participants.html" class="thumbnail conference-tile">
-                        <img src="images/participants.svg"  alt="..." class="conference-icon">
-                        <div class="caption">
-                            <h1>Participants</h1>
-                            <p>Manage your participants.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#" class="thumbnail conference-tile">
-                        <img src="images/notes.svg"  alt="..." class="conference-icon">
-                        <div class="caption">
-                            <h1>Notes</h1>
-                            <p>Make some notes.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- //container -->
-    </div>
-</div>
-<!-- //header -->
-
-</body>
+		<!-- //kim jestesmy -->
+		
+		<!-- features -->
+		<div id="features" class="features">
+			<!-- container -->
+			<div class="container">
+				<div class="features-info">
+					<h3>Features</h3>
+					<p>Are you organizing an event? Do you want to have everything in the same place? Do you want to remember about everything?</p></br>
+					<p>This app is for you!</p></br>
+				</div>
+				<div class="features-grids">
+					<div class="col-md-7 features-right">
+						<h4>Our platform has functions like:
+						</h4>
+						<div class="features-right-grids">
+							<div class="features-right-grid right-top">
+								<div class="design-left"><img src="images/plus.svg"></div>
+								<div class="design-right">
+									<h5>Generate schedules</h5>
+									<p>Schedules will tell you what you should do to organize your event.</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="features-right-grid right-middle-top">
+								<div class="design-left"><img src="images/select.svg"></div>
+								<div class="design-right">
+									<h5>Keep track of what you've done</h5>
+									<p>Managing your tasks is really important.</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="features-right-grid right-middle">
+								<div class="design-left"><img src="images/user.svg"></div>
+								<div class="design-right">
+									<h5>Match people with tasks...</h5>
+									<p>...and talk with them!</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="features-right-grid right-bottom">
+								<div class="design-left"><img src="images/qr-code.svg"></div>
+								<div class="design-right">
+									<h5>Have everything in one place</h5>
+									<p>One app, everything you need!</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5 slid">
+							<!--- banner Slider starts Here --->
+							 <script>
+								// You can also use "$(window).load(function() {"
+								$(function () {
+								  // Slideshow 4
+								  $("#slider3").responsiveSlides({
+									auto: true,
+									pager: true,
+									nav: true,
+									speed: 500,
+									namespace: "callbacks",
+									before: function () {
+									  $('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+									  $('.events').append("<li>after event fired.</li>");
+									}
+								  });
+							
+								});
+							  </script>
+							<!----//End-slider-script---->
+							<div  id="top" class="callbacks_container">
+								<ul class="rslides" id="slider3">
+									<li>
+										<div class="mobile-device features-device">
+											<img src="images/calendar.jpg" alt="" />
+										</div>
+									</li>
+									<li>
+										<div class="mobile-device green-device features-device">
+											<img src="images/calendar2.jpg" alt="" />
+										</div>
+									</li>
+								</ul>
+							</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //features -->
+		<!-- Footer -->
+		<footer>
+			<div class="container" id="contact">
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1 text-center">
+						<h4><p>OrganizeMe.pl</p></strong>
+						</h4>
+						<p>Krakowski Park Technologiczny</p>
+						<ul class="list-unstyled">
+							<li><i class="fa fa-envelope-o fa-fw" style="color: white"></i><a href="mailto:contact@organizeme.pl"><p>contact@organizeme.pl</p></a>
+							</li>
+						</ul>
+						<br>
+						<ul class="list-inline">
+							<li>
+								<a href="https://www.facebook.com/organizeme"><i class="fa fa-facebook fa-fw fa-3x" style="color: white"></i></a>
+							</li>
+						</ul>
+						<hr class="small">
+						<p>Copyright &copy; 2016</br>Kasia Głąb, Michał Kiełtyka, Karolina Wojtas</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!-- content-Get-in-touch -->
+	</body>
 </html>

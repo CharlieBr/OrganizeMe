@@ -30,7 +30,7 @@ public class OrganizeMeResource {
 
     @POST
     @Timed
-    @Path("/add-user")
+    @Path("/add-participant")
     public Response addUser(@QueryParam("name") final String name) {
         this.postgreSQLClient.addParticipant(name);
         return Response.ok().build();

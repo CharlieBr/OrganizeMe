@@ -1,80 +1,87 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>OrganizeMe</title>
-
-  <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/simple-sidebar.css" rel="stylesheet">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-</head>
-
-<body>
-
-<div id="wrapper">
-
-  <!-- Sidebar -->
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a href="http://localhost:5000/assets/index.html">
-          Main Page
-        </a>
-      </li>
-      <li>
-        <a href="http://localhost:5000/assets/to-do.html">To-do list</a>
-      </li>
-    </ul>
-  </div>
-  <!-- /#sidebar-wrapper -->
-
-  <div class="container">
-    <h2>Participants</h2>
-    <button type="button" class="btn btn-default">Show list</button>
-  </div>
-
-</div>
-<!-- /#wrapper -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-
-    $("button").click(function(){
-      $.getJSON("http://localhost:5000/organize-me/participants", function(result){
-        $.each(result, function(i, field){
-            $("div").append("<br>" + field);
-        });
+  <title>OrganizeMe.pl - Zorganizuj event!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="OrganizeMe.pl - Zorganizuj event!" />
+  <meta name="keywords" content="organizeme, organize, events, plan" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/styles.css?v=1.6" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
+  <!-- js -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/scripts.js?v=1.7"></script>
+  <!-- //js -->
+  <!-- start-smoth-scrolling -->
+  <script type="text/javascript" src="js/move-top.js"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+  <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+  $(document).ready(function(){
+    var divClone = $("#listOf").clone();
+    $("#list").click(function(){
+      $.get("http://localhost:5000/organize-me/participants", function(data){
+          $("#listOf").replaceWith(divClone.clone());
+          var result = "";
+          $.each( data, function(i, el){
+             result += el + '<br>';
+          });
+          $("#listOf").append(result);
       });
     });
-</script>
+    $("#add").click(function(){
+      var query = "http://localhost:5000/organize-me/add-participant";
+      console.log("jaj");
+    });
+  });
 
+</script>
+  <!-- start-smoth-scrolling -->
+</head>
+<body class="cbp-spmenu-push">
+<!-- header -->
+<div class="header-bg">
+  <section class="navigation">
+    <div class="container-fluid">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+
+      </div>
+    </div>
+  </section>
+  <div class="header-top">
+    <div class="container">
+      <div class="head-logo">
+        <a href="index.html"><img src="images/logo.png"></a>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <div class="banner-info">
+    <!-- container -->
+    <div class="btn-group">
+      <button id="add" class="btn btn-default">Add participant</button>
+      <button id="list" type="button" class="btn btn-default">List of participants</button>
+    </div>
+    <div id="listOf"></div>
+    <!-- //container -->
+  </div>
+</div>
+<!-- //header -->
 
 </body>
 
