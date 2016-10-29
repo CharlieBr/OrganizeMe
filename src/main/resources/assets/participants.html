@@ -54,7 +54,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     $("#submit").click(function(){
         $('#listOf').hide();
         $('#input').show();
-        var query = "http://localhost:5000/organize-me/add-participant";
+        var name = $("#name").val();
+        var query = "http://localhost:5000/organize-me/add-participant?name=" + name;
+        $.post(query);
     });
   });
 
