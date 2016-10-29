@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           $("#listOf").replaceWith(divClone.clone());
           var result = "";
           $.each( data, function(i, el){
-             result += el + '<br>';
+             result += el + " <img src='images/sms.svg' style='height:5%; width:5%;'><br>";
           });
           $("#listOf").append(result);
       });
